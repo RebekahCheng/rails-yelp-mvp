@@ -1,7 +1,19 @@
-<h1>Yelp Restaurants</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-8">
+      <h1>Yelp Restaurants</h1>
+        <p><%= link_to "Add a New Restaurant", new_restaurant_path %></p>
+        <% @restaurants.each do |restaurant| %>
 
-<% @restaurants.each do |restaurant| %>
+        <h3><%= restaurant.name %> - <%= restaurant.category.capitalize %></h3>
+        <p><%= restaurant.address %></p>
+        <p> <%= restaurant.phone_number %></p>
+        <p><%= link_to "Add a Review", new_restaurant_review_path(restaurant) %></p>
+        <hr>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-  <li><%= restaurant.name %> - <%= restaurant.address %></li>
 
-<% end %>
+
